@@ -6,7 +6,7 @@ import * as esbuild from 'esbuild';
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
 // Bump with each iPhone release (the Windows version lives in the .csproj).
-const IPHONE_VERSION = 'iPhone v003 (2026-11-10)';
+const IPHONE_VERSION = 'iPhone v004 (2026-11-10)';
 
 const dir = (rel) => new URL(rel, import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
@@ -43,11 +43,16 @@ html = html.replace(viewport, [
   '<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">',
   '<link rel="icon" type="image/png" href="icons/icon-192.png">',
 ].join('\n'));
-html = html.replace('<link rel="stylesheet" href="app.css">', '<link rel="stylesheet" href="app.css">\n<link rel="stylesheet" href="iphone.css">');
-html = html.replace('</body>', `<script>if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});</script>\n</body>`);
+// Version-stamped URLs: GitHub Pages lets browsers reuse files for 10 minutes, so a new release
+// must use new URLs or phones keep running the old app.js.
+const vslug = IPHONE_VERSION.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+html = html.replace('<link rel="stylesheet" href="app.css">', `<link rel="stylesheet" href="app.css?v=${vslug}">\n<link rel="stylesheet" href="iphone.css?v=${vslug}">`);
+html = html.replace('<script src="app.js"></script>', `<script src="app.js?v=${vslug}"></script>`);
+if (!html.includes(`app.js?v=${vslug}`)) throw new Error('index.html script tag changed; update build.mjs');
+html = html.replace('</body>', `<script>if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => {});</script>\n</body>`);
 writeFileSync(web + 'index.html', html);
 for (const f of ['iphone.css', 'manifest.webmanifest', 'README.md']) copyFileSync('iphone/' + f, web + f);
-const cacheName = 'slithymdview-' + IPHONE_VERSION.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+const cacheName = 'slithymdview-' + vslug;
 writeFileSync(web + 'sw.js', readFileSync('iphone/sw.js', 'utf8').replace("'__CACHE__'", `'${cacheName}'`));
 writeFileSync(web + '.nojekyll', '');
 mkdirSync(web + 'icons', { recursive: true });

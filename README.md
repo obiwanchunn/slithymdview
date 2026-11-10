@@ -11,7 +11,7 @@ jumps within the file, `[[Other note]]` opens `Other note.md` from the same fold
 
 | Folder | What | Version |
 |---|---|---|
-| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v003 |
+| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v004 |
 | [`windows/`](windows) | **Windows** app — C# / .NET 10 WPF + WebView2, build with `build.cmd` | v004 |
 | [`web-src/`](web-src) | The shared screen (HTML/CSS/JavaScript) both versions are built from | — |
 | [`samples/`](samples) | Test documents: `sample.md` (most Markdown features), `wide.md` (long lines, wide table), `wikilinks.md` | — |

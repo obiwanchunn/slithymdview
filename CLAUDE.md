@@ -67,6 +67,12 @@ home Google Drive: `Claude/SlithyMDView/slithymdview_notes_vVVV_YYYYMMDD.md`.
   `![[img.png|300]]` → `<img width>`; other `![[Note]]` embeds render as links. Reveal mode shows
   `[[`/`]]` (and target when alias differs) as markers. iPhone: same-origin (relative file) links
   toast "use Open" instead of navigating. Cheat-sheet entry added. Sample: `samples/wikilinks.md`.
+- iPhone v004 (2026-11-10): updates were stuck up to 10 min — GitHub Pages sends
+  `Cache-Control: max-age=600`, and both the service worker's network-first fetch and a normal
+  reload reused the HTTP-cached app.js. Fix: build.mjs stamps `app.js/app.css/iphone.css?v=<version>`
+  into index.html; sw.js fetches with `cache: 'no-cache'` (revalidate) and, offline, prefers the
+  exact saved URL before an ignoreSearch match; registered with `updateViaCache: 'none'` (also on
+  localhost, for testing). Test with a server that adds max-age=600 (see /tmp/cachesrv.py pattern).
 
 ## Ideas not built (only if asked)
 Find in View mode, recent-files list, tabs, spell check, export to HTML/PDF beyond printing.
