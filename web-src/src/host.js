@@ -120,7 +120,17 @@ function browserHost(msg) {
       else clearDraft();
       break;
     case 'dirty': isDirty = !!msg.dirty; break;
-    case 'openLink': window.open(msg.href, '_blank', 'noopener'); break;
+    case 'openLink': {
+      // Links to other files next to this one (e.g. [[Other note]]) can't be reached from a web
+      // app — it only ever sees the one file that was opened.
+      let u = null;
+      try { u = new URL(msg.href, location.href); } catch { break; }
+      if (u.origin === location.origin) {
+        const name = decodeURIComponent(u.pathname.split('/').pop() || 'that file');
+        emit({ type: 'toast', message: `To open ${name}, use Open (the folder button)` });
+      } else window.open(u.href, '_blank', 'noopener');
+      break;
+    }
     case 'theme': {
       const m = document.querySelector('meta[name="theme-color"]');
       if (m) m.content = msg.dark ? '#15171b' : '#f7f6f3';

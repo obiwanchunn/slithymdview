@@ -3,16 +3,18 @@
 A no-bloat Markdown (`.md`) viewer and editor — formerly **MdView**. Open a file and it's shown
 fully formatted; flip to **Edit** for the raw text with the markup styled as you type. **Markup**
 reveals every piece of markup (like Word's ¶ button), and the **cheat sheet** lists every
-Markdown construct with an *Insert* button.
+Markdown construct with an *Insert* button. Obsidian-style wiki links work too: `[[#Heading]]`
+jumps within the file, `[[Other note]]` opens `Other note.md` from the same folder (Windows), and
+`[[target|text]]` sets the link text.
 
 *'Twas brillig, and the slithy toves / Did gyre and gimble in the wabe.*
 
 | Folder | What | Version |
 |---|---|---|
-| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v002 |
-| [`windows/`](windows) | **Windows** app — C# / .NET 10 WPF + WebView2, build with `build.cmd` | v003 |
+| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v003 |
+| [`windows/`](windows) | **Windows** app — C# / .NET 10 WPF + WebView2, build with `build.cmd` | v004 |
 | [`web-src/`](web-src) | The shared screen (HTML/CSS/JavaScript) both versions are built from | — |
-| [`samples/`](samples) | Test documents: `sample.md` (most Markdown features), `wide.md` (long lines, wide table) | — |
+| [`samples/`](samples) | Test documents: `sample.md` (most Markdown features), `wide.md` (long lines, wide table), `wikilinks.md` | — |
 
 > **Why is the iPhone app in a folder called `docs`?** GitHub Pages' simple "Deploy from a
 > branch" setting can only publish the top of the repo or a folder named exactly `docs`. So the

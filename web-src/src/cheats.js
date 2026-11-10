@@ -26,6 +26,7 @@ export const CHEATS = [
   { group: 'Links & images', title: 'Reference link', md: 'See [the docs][docs] for more.\n\n[docs]: https://example.com/docs', note: 'Keeps long URLs out of your paragraphs.' },
   { group: 'Links & images', title: 'Link to a heading', md: '[Jump to setup](#setup)', note: 'Lowercase the heading text and replace spaces with hyphens.' },
   { group: 'Links & images', title: 'Link to another file', md: '[Notes](notes.md)', note: 'Relative to this file’s folder. .md links open here.' },
+  { group: 'Links & images', title: 'Wiki link (Obsidian)', md: 'See [[#Headings]], [[Other note]] or [[Other note|this note]].', note: '`[[#Heading]]` jumps within this file; `[[Note]]` opens Note.md from the same folder (Windows). `![[photo.png]]` shows an image.', insert: '[[#Heading]]' },
   { group: 'Links & images', title: 'Image', md: '![Alt text](images/photo.png "optional title")', note: 'Paths are relative to this file’s folder.' },
   { group: 'Links & images', title: 'Footnote', md: 'Here is a claim.[^1]\n\n[^1]: And here is the source.' },
 

@@ -61,6 +61,12 @@ home Google Drive: `Claude/SlithyMDView/slithymdview_notes_vVVV_YYYYMMDD.md`.
   wide table widened the whole page (grid track sized to content). Fix: `#app` grid-template-columns
   `minmax(0, 1fr)` + `.workspace` min-width 0; code blocks/tables now scroll inside themselves.
   Regression sample: `samples/wide.md` (page must stay 390 px wide at an iPhone viewport).
+- v004 / iPhone v003 (2026-11-10): Obsidian wiki links (owner keeps notes in an Obsidian vault):
+  `wikilinks.js` markdown-it inline rule (before `link`): `[[#H]]` → `#slugify(H)` (same slugify as
+  markdown-it-anchor, so ids match), `[[Note]]` → `Note.md`, `[[Note#H]]`, `[[x|alias]]`,
+  `![[img.png|300]]` → `<img width>`; other `![[Note]]` embeds render as links. Reveal mode shows
+  `[[`/`]]` (and target when alias differs) as markers. iPhone: same-origin (relative file) links
+  toast "use Open" instead of navigating. Cheat-sheet entry added. Sample: `samples/wikilinks.md`.
 
 ## Ideas not built (only if asked)
 Find in View mode, recent-files list, tabs, spell check, export to HTML/PDF beyond printing.

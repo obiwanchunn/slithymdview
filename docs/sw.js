@@ -1,6 +1,6 @@
 // Lets SlithyMDView open with no internet. Network first, so a new version shows up as soon as
 // you're online; the saved copy is used when you're not. (build.mjs fills in the cache name from the version.)
-const CACHE = 'slithymdview-iphone-v002-2026-11-10';
+const CACHE = 'slithymdview-iphone-v003-2026-11-10';
 const FILES = [
   './', 'index.html', 'app.js', 'app.css', 'iphone.css', 'manifest.webmanifest',
   'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png',

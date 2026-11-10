@@ -6,7 +6,7 @@ import * as esbuild from 'esbuild';
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
 // Bump with each iPhone release (the Windows version lives in the .csproj).
-const IPHONE_VERSION = 'iPhone v002 (2026-11-10)';
+const IPHONE_VERSION = 'iPhone v003 (2026-11-10)';
 
 const dir = (rel) => new URL(rel, import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 

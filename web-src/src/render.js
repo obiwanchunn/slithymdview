@@ -8,6 +8,7 @@ import footnote from 'markdown-it-footnote';
 import anchor from 'markdown-it-anchor';
 import hljs from 'highlight.js/lib/common';
 import DOMPurify from 'dompurify';
+import { wikilinks } from './wikilinks.js';
 
 export function slugify(s) {
   return s.trim().toLowerCase()
@@ -29,7 +30,8 @@ function makeBase() {
   const md = new MarkdownIt({ html: true, linkify: true, typographer: false, highlight });
   md.use(taskLists, { enabled: true, label: false })
     .use(footnote)
-    .use(anchor, { slugify, tabIndex: false });
+    .use(anchor, { slugify, tabIndex: false })
+    .use(wikilinks, { slugify });   // Obsidian [[links]]
 
   // Tag every block element with the source line it came from. This drives
   // scroll-sync between editor and preview and the clickable task checkboxes.
@@ -145,6 +147,18 @@ function makeReveal() {
     `<div class="mk-htmlblock" data-line="${t[i].map ? t[i].map[0] : ''}">${mk('HTML', 'mk-block mk-note')}<pre>${esc(t[i].content)}</pre></div>`;
 
   R.footnote_ref = (t, i, o, e, self) => mk(`[^${t[i].meta.label}]`);
+
+  // [[wiki links]]: show the brackets (and the target, when the visible text differs) as markers
+  R.wikilink = (t, i) => {
+    const m = t[i].meta;
+    const p = md.wikilinkParts(m);
+    if (p.image) return mk(`![[${m.target}${m.alias ? '|' + m.alias : ''}]]`, 'mk-url') + p.html;
+    const a = (text) => `<a href="${esc(p.href)}" class="wikilink">${esc(text)}</a>`;
+    const open = (m.embed ? '!' : '') + '[[';
+    if (m.alias) return mk(open + m.target + '|') + a(m.alias) + mk(']]');
+    if (!m.file) return mk(open + '#') + a(m.heading) + mk(']]');
+    return mk(open) + a(m.target) + mk(']]');
+  };
   return md;
 }
 
