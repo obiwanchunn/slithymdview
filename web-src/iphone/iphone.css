@@ -1,0 +1,6 @@
+/* iPhone-only additions (loaded after app.css by docs/index.html) */
+html, body { overscroll-behavior: none; -webkit-text-size-adjust: 100%; }
+#app { height: 100vh; height: 100dvh; }
+.toolbar { padding-left: max(6px, env(safe-area-inset-left)); padding-right: max(6px, env(safe-area-inset-right)); }
+.statusbar { padding-bottom: max(4px, env(safe-area-inset-bottom)); }
+#toast { bottom: calc(42px + env(safe-area-inset-bottom)); }
