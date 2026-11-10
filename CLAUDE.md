@@ -57,6 +57,10 @@ home Google Drive: `Claude/SlithyMDView/slithymdview_notes_vVVV_YYYYMMDD.md`.
 - v001 (2026-11-02): MdView, first release (.NET 8). Compiled first try.
 - v002 (2026-11-10): renamed SlithyMDView; .NET 10; version in ⋯ menu; Edit with + auto
   take-over; tove-over-a-page icon. iPhone v001 (2026-11-10): first iPhone web app.
+- v003 / iPhone v002 (2026-11-10): View mode didn't wrap on narrow screens — a long code line or
+  wide table widened the whole page (grid track sized to content). Fix: `#app` grid-template-columns
+  `minmax(0, 1fr)` + `.workspace` min-width 0; code blocks/tables now scroll inside themselves.
+  Regression sample: `samples/wide.md` (page must stay 390 px wide at an iPhone viewport).
 
 ## Ideas not built (only if asked)
 Find in View mode, recent-files list, tabs, spell check, export to HTML/PDF beyond printing.

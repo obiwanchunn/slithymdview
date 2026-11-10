@@ -1,5 +1,5 @@
 // Lets SlithyMDView open with no internet. Network first, so a new version shows up as soon as
-// you're online; the saved copy is used when you're not. (__CACHE__ is filled in by build.mjs.)
+// you're online; the saved copy is used when you're not. (build.mjs fills in the cache name from the version.)
 const CACHE = '__CACHE__';
 const FILES = [
   './', 'index.html', 'app.js', 'app.css', 'iphone.css', 'manifest.webmanifest',

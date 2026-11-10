@@ -60,7 +60,8 @@
 html, body { margin: 0; height: 100%; }
 body { background: var(--bg); color: var(--text); font: 14px/1.4 var(--font-ui); overflow: hidden; }
 button { font: inherit; color: inherit; }
-#app { display: grid; grid-template-rows: auto auto 1fr auto; height: 100vh; }
+#app { display: grid; grid-template-rows: auto auto 1fr auto; grid-template-columns: minmax(0, 1fr); height: 100vh; }
+/* minmax(0, …): a long code line or wide table must never widen the page; those scroll on their own */
 .grow { flex: 1; }
 [hidden] { display: none !important; }
 
@@ -124,7 +125,7 @@ button { font: inherit; color: inherit; }
 .fmt-sep { width: 1px; height: 18px; background: var(--border); margin: 0 5px; }
 
 /* ------------------------------------------------------------------ layout */
-.workspace { display: flex; min-height: 0; position: relative; }
+.workspace { display: flex; min-height: 0; min-width: 0; position: relative; }
 #editor-pane { flex: 1 1 50%; min-width: 0; display: none; background: var(--surface); }
 #viewer-wrap { flex: 1 1 50%; min-width: 0; overflow: auto; scroll-behavior: auto; }
 .mode-edit #editor-pane { display: block; }

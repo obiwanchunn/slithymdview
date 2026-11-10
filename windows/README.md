@@ -98,7 +98,7 @@ This rewrites both `windows\SlithyMDView\web\` and the iPhone app in `docs\`; th
 ## Version
 
 Set in `SlithyMDView/SlithyMDView.csproj`: bump `Version` (1.0.2 = v002) and `InformationalVersion`
-together. v001 was MdView (2026-11-02); v002 (2026-11-10) is the first SlithyMDView.
+together. v001 was MdView (2026-11-02); v002 (2026-11-10) is the first SlithyMDView; v003 (2026-11-10) fixes text wrapping in narrow windows.
 
 ## Libraries
 

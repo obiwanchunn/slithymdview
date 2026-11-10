@@ -9,10 +9,10 @@ Markdown construct with an *Insert* button.
 
 | Folder | What | Version |
 |---|---|---|
-| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v001 |
-| [`windows/`](windows) | **Windows** app — C# / .NET 10 WPF + WebView2, build with `build.cmd` | v002 |
+| [`docs/`](docs) | **iPhone** web app — add it to the Home Screen; works offline. *(Not documentation — see below.)* | iPhone v002 |
+| [`windows/`](windows) | **Windows** app — C# / .NET 10 WPF + WebView2, build with `build.cmd` | v003 |
 | [`web-src/`](web-src) | The shared screen (HTML/CSS/JavaScript) both versions are built from | — |
-| [`samples/`](samples) | A test document that uses most Markdown features | — |
+| [`samples/`](samples) | Test documents: `sample.md` (most Markdown features), `wide.md` (long lines, wide table) | — |
 
 > **Why is the iPhone app in a folder called `docs`?** GitHub Pages' simple "Deploy from a
 > branch" setting can only publish the top of the repo or a folder named exactly `docs`. So the

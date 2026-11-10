@@ -13,8 +13,8 @@
     <Description>Markdown viewer and editor</Description>
     <!-- Bump both with each release: Version's last number is the build (v002 = 1.0.2).
          v001 was MdView; SlithyMDView continues its numbering. -->
-    <Version>1.0.2</Version>
-    <InformationalVersion>v002 (2026-11-10)</InformationalVersion>
+    <Version>1.0.3</Version>
+    <InformationalVersion>v003 (2026-11-10)</InformationalVersion>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <!-- needed so the single-file exe can carry WebView2's native loader -->

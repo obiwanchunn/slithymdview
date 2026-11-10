@@ -6,7 +6,7 @@ import * as esbuild from 'esbuild';
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 
 // Bump with each iPhone release (the Windows version lives in the .csproj).
-const IPHONE_VERSION = 'iPhone v001 (2026-11-10)';
+const IPHONE_VERSION = 'iPhone v002 (2026-11-10)';
 
 const dir = (rel) => new URL(rel, import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 
@@ -47,8 +47,8 @@ html = html.replace('<link rel="stylesheet" href="app.css">', '<link rel="styles
 html = html.replace('</body>', `<script>if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});</script>\n</body>`);
 writeFileSync(web + 'index.html', html);
 for (const f of ['iphone.css', 'manifest.webmanifest', 'README.md']) copyFileSync('iphone/' + f, web + f);
-writeFileSync(web + 'sw.js', readFileSync('iphone/sw.js', 'utf8')
-  .replace('__CACHE__', 'slithymdview-' + IPHONE_VERSION.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')));
+const cacheName = 'slithymdview-' + IPHONE_VERSION.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+writeFileSync(web + 'sw.js', readFileSync('iphone/sw.js', 'utf8').replace("'__CACHE__'", `'${cacheName}'`));
 writeFileSync(web + '.nojekyll', '');
 mkdirSync(web + 'icons', { recursive: true });
 for (const f of readdirSync('iphone/icons')) copyFileSync('iphone/icons/' + f, web + 'icons/' + f);
