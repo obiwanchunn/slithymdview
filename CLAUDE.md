@@ -14,7 +14,7 @@ home Google Drive: `Claude/SlithyMDView/slithymdview_notes_vVVV_YYYYMMDD.md`.
   - `web-src/iphone/` holds the iPhone-only files copied into `docs/` (sw.js, manifest, iphone.css,
     icons, the docs README). `web-src/art/make_icon.py` makes the icons.
 - `windows/` — C# / .NET 10 WPF host with WebView2. `build.cmd` → `publish\SlithyMDView.exe`.
-- `docs/` — GitHub Pages (main /docs) → https://obiwanchunn.github.io/SlithyMDView/. Named `docs`
+- `docs/` — GitHub Pages (main /docs) → https://obiwanchunn.github.io/slithymdview/. Named `docs`
   only because branch-deploy Pages allows just `/` or `/docs` (README explains this).
 
 ## How it works

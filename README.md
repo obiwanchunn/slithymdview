@@ -22,7 +22,7 @@ Markdown construct with an *Insert* button.
 
 ## iPhone
 
-Published from `docs/` with GitHub Pages: **https://obiwanchunn.github.io/SlithyMDView/**
+Published from `docs/` with GitHub Pages: **https://obiwanchunn.github.io/slithymdview/**
 
 1. Open that link in **Safari** on the iPhone.
 2. **Share** → **Add to Home Screen** → **Add**.
