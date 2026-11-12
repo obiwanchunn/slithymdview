@@ -43,7 +43,8 @@ Published from `docs/` with GitHub Pages: **https://obiwanchunn.github.io/slithy
 ## Windows
 
 See [`windows/README.md`](windows/README.md). In short: install the .NET 10 SDK, run
-`windows\build.cmd`, open `windows\publish\SlithyMDView.exe`, then **⋯ → Use SlithyMDView for .md
+`windows\build.cmd` (and, if you like, `windows\install.cmd` to copy it into
+`C:\Program Files\SlithyMDView`), open `SlithyMDView.exe`, then **⋯ → Use SlithyMDView for .md
 files…**. Coming from MdView: run `MdView.exe --unregister` once to remove the old entries.
 
 ## Changing the screen (both versions)
