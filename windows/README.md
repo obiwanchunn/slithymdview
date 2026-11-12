@@ -31,6 +31,19 @@ The WebView2 runtime is part of Windows 10/11 already.
 
 Prefer Visual Studio? Open `SlithyMDView.sln` (or `SlithyMDView\SlithyMDView.csproj`) in Visual Studio 2022 and press F5.
 
+## Install (optional)
+
+`publish\SlithyMDView.exe` runs from anywhere. To put it in `C:\Program Files\SlithyMDView`, run
+
+```
+.\install.cmd
+```
+
+after `build.cmd`. Windows asks for administrator permission (Program Files needs it) and the copy
+happens in a second window. Close SlithyMDView first if it's open, then open the installed copy
+once so **Open with** / **Edit with** point at it. Use that copy from then on: opening
+`publish\SlithyMDView.exe` again would point them back at the build folder.
+
 ## Open with / Edit with / double-click
 
 1. Run `SlithyMDView.exe`, open the **⋯** menu and choose **Use SlithyMDView for .md files…**
